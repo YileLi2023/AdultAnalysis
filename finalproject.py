@@ -42,7 +42,7 @@ option = st.selectbox(
     'Which questions do you like best?',
     ['Question1', 'Question2', 'Question3', 'References'])
 if option == 'Question1':
-    "## The first thing we want to explore is: How are the years of education of practitioners distributed?"
+    st.write("## The first thing we want to explore is: How are the years of education of practitioners distributed?")
     chart_1 = alt.Chart(df).mark_line().encode(
         x="education-num",
         y="count()",
@@ -55,6 +55,12 @@ elif option == 'Question2':
     st.write("## The second thing we want to explore is: Is there any relationship between the practitioner’s years of "
              "education, weekly working hours, and income?")
     df_visualization = df.copy(deep=True)
+    chart_4 = alt.Chart(df_visualization).mark_bar().encode(
+        x=alt.X('education-num', bin=alt.Bin(maxbins=30)),
+        y='count()',
+        color="income:N",
+    )
+    st.altair_chart(chart_4, use_container_width=True)
 
     chart_2 = alt.Chart(df_visualization).mark_circle().encode(
         x="education-num",
@@ -103,6 +109,8 @@ elif option == 'Question3':
     X_test = pd.concat([X_test, y_test], axis=1)
     X_test['KNN_pre'] = knn.predict(X_test_std)
     st.write(X_test.head())
+    X_test["id"] = X_test.index
+    st.line_chart(X_test[['income', 'KNN_pre']].iloc[:50,:])
     st.write("Observing the prediction results of the KNN model we selected, we found that the accuracy of the "
              "prediction is about 76.1%. We may be able to adjust the hyperparameters of the model to make the model "
              "more accurate classification.")
@@ -118,6 +126,3 @@ elif option == 'References':
     st.write("The section of the app was taken from "
              "https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html#sklearn"
              ".preprocessing.StandardScaler")
-
-
-
