@@ -114,15 +114,14 @@ elif option == 'Question3':
     st.write("Observing the prediction results of the KNN model we selected, we found that the accuracy of the "
              "prediction is about 76.1%. We may be able to adjust the hyperparameters of the model to make the model "
              "more accurate classification.")
-elif option == 'References':
-    st.write("## References")
-    st.write("GitHub: https://github.com/YileLi2023/AdultAnalysis")
-    st.write("The section of the app was taken from "
-             "https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html#sklearn"
-             ".model_selection.train_test_split")
-    st.write("The section of the app was taken from "
-             "https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html#sklearn"
-             ".neighbors.KNeighborsClassifier")
-    st.write("The section of the app was taken from "
-             "https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html#sklearn"
-             ".preprocessing.StandardScaler")
+st.write("## References")
+st.write("GitHub: https://github.com/YileLi2023/AdultAnalysis")
+st.write("The section of the app was taken from "
+         "https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html#sklearn"
+         ".model_selection.train_test_split")
+st.write("The section of the app was taken from "
+         "https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html#sklearn"
+         ".neighbors.KNeighborsClassifier")
+st.write("The section of the app was taken from "
+         "https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html#sklearn"
+         ".preprocessing.StandardScaler")
